@@ -1,10 +1,8 @@
 package com.don.easy2readyoedge.morecomic;
 
 import com.don.easy2readyoedge.beans.BookBean;
-import com.don.easy2readyoedge.core.mvp.MvpView;
-
-import android.content.Context;
-
+import com.orz.orzframework.mvp.MvpPresenter;
+import com.orz.orzframework.mvp.MvpView;
 import java.util.List;
 
 /**
@@ -12,22 +10,25 @@ import java.util.List;
  */
 
 public interface MoreComicContract {
-  /**
-   * Created by don on 10/24/16.
-   */
 
-  interface ViewModel extends MvpView<MoreComicContract.Presenter> {
+  interface ViewModel extends MvpView {
+
     void initControl();
+
     void showComicDetail(BookBean bookBean);
+
     void addDataToList(List<BookBean> arrayList);
 
     void showSnackbarInfo(String text);
+
     void showSnackbarInfo(int textRes);
+
     void clearData();
+
     void notifyList();
   }
 
-  interface Presenter{
+  interface Presenter extends MvpPresenter {
 
     void initControl();
 

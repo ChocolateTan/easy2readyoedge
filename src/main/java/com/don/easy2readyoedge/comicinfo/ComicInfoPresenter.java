@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.don.easy2readyoedge.beans.ArticleBean;
 import com.don.easy2readyoedge.beans.BookBean;
 import com.don.easy2readyoedge.comic.ComicContract;
 import com.don.easy2readyoedge.configs.CacheConfigs;

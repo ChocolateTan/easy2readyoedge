@@ -12,19 +12,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.don.easy2readyoedge.R;
 import com.don.easy2readyoedge.apis.ApiService;
 import com.don.easy2readyoedge.configs.ApiConfigs;
-import com.don.easy2readyoedge.core.self.SelfLog;
 import com.don.easy2readyoedge.huijicomic.HuiJiComicFragment;
 import com.don.easy2readyoedge.bookmark.BookmarkFragment;
 import com.don.easy2readyoedge.home.HomeFragment;
 import com.don.easy2readyoedge.morecomic.MoreComicFragment;
 
+import com.orz.orzframework.logger.ORZLog;
 import javax.inject.Inject;
 
 import okhttp3.ResponseBody;
@@ -289,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
       .doOnNext(new Action1<ResponseBody>() {
         @Override
         public void call(ResponseBody responseBody) {
-          SelfLog.i("don", "next 1");
+          ORZLog.i("don", "next 1");
         }
       })
 //      .doOnError(new Action1<Throwable>() {
@@ -301,7 +298,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
       .doOnNext(new Action1<ResponseBody>() {
         @Override
         public void call(ResponseBody responseBody) {
-          SelfLog.i("don", "next 2");
+          ORZLog.i("don", "next 2");
         }
       })
 //      .doOnError(new Action1<Throwable>() {

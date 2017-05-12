@@ -1,6 +1,7 @@
 package com.don.easy2readyoedge.comic;
 
-import com.don.easy2readyoedge.core.mvp.MvpView;
+import com.orz.orzframework.mvp.MvpPresenter;
+import com.orz.orzframework.mvp.MvpView;
 
 /**
  * Created by DON on 17/02/21.
@@ -8,17 +9,25 @@ import com.don.easy2readyoedge.core.mvp.MvpView;
 
 public interface ComicContract {
 
-  interface Presenter{
+  interface ViewModel extends MvpView {
+
     void initControl();
-    void loadComicHtml();
+
+    void setComicTitle(String text);
+
+    void setComicCover(String url);
+
+    void addComicToList();
+
+    void showProgressDialog(String text);
+
+    void hideProgressDialog();
   }
 
-  interface ViewModel {
+  interface Presenter extends MvpPresenter {
+
     void initControl();
-    void setComicTitle(String text);
-    void setComicCover(String url);
-    void addComicToList();
-    void showProgressDialog(String text);
-    void hideProgressDialog();
+
+    void loadComicHtml();
   }
 }

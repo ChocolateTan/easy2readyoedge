@@ -1,17 +1,15 @@
 package com.don.easy2readyoedge.huijicomic;
 
-import android.content.Context;
-
 import com.don.easy2readyoedge.apis.ApiService;
 import com.don.easy2readyoedge.beans.BaseBean;
 import com.don.easy2readyoedge.beans.BookBean;
 import com.don.easy2readyoedge.configs.ApiConfigs;
 import com.don.easy2readyoedge.configs.CacheConfigs;
-import com.don.easy2readyoedge.core.self.SelfLog;
 import com.don.easy2readyoedge.utils.ACache;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import com.orz.orzframework.logger.ORZLog;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +67,7 @@ public class HuiJiComicPresenter implements HuiJiComicContract.Presenter {
       .subscribe(new Subscriber<BaseBean<ArrayList<BookBean>>>() {
         @Override
         public void onCompleted() {
-          SelfLog.i(TAG, "Get Completed");
+          ORZLog.i(TAG, "Get Completed");
         }
 
         @Override

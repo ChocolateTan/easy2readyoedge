@@ -1,23 +1,26 @@
 package com.don.easy2readyoedge.appwebview;
 
-import com.don.easy2readyoedge.core.mvp.MvpView;
+import com.orz.orzframework.mvp.MvpPresenter;
+import com.orz.orzframework.mvp.MvpView;
 
 /**
  * Created by DON on 17/02/21.
  */
 
 public interface AppWebContract {
-  /**
-   * Created by don on 10/31/16.
-   */
-  interface Presenter{
+  
+  interface ViewModel extends MvpView {
+
+    void findControl();
+
+    void showWebViewContent(String url);
+  }
+
+  interface Presenter extends MvpPresenter {
 
     void initControl();
 
     void loadWebView(String url);
   }
-  interface ViewModel {
-    void findControl();
-    void showWebViewContent(String url);
-  }
+
 }

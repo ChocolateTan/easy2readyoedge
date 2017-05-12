@@ -2,11 +2,10 @@ package com.don.easy2readyoedge.data.source.local;
 
 import com.don.easy2readyoedge.beans.BookBean;
 import com.don.easy2readyoedge.configs.CacheConfigs;
-import com.don.easy2readyoedge.core.self.SelfJson;
-import com.don.easy2readyoedge.core.self.SelfLog;
 import com.don.easy2readyoedge.utils.ACache;
 import com.google.gson.reflect.TypeToken;
-
+import com.orz.orzframework.json.ORZJson;
+import com.orz.orzframework.logger.ORZLog;
 import java.lang.reflect.Type;
 import java.util.List;
 
@@ -29,26 +28,26 @@ public class BookInfoLocalDataSource {
   public List<BookBean> getBookmarkList(ACache aCache) {
     String json = aCache.getAsString(CacheConfigs.BOOK_MARK_LIST);
 
-    if (SelfJson.isJson(json)) {
+    if (ORZJson.isJson(json)) {
       Type type = new TypeToken<List<BookBean>>() {
       }.getType();
-      return SelfJson.fromJson(json, type);
+      return ORZJson.fromJson(json, type);
     }
 
     return null;
   }
 
   public void saveBookInfo(ACache aCache, String urlName, BookBean bookBean) {
-    String json = SelfJson.toJson(bookBean);
-    SelfLog.i(TAG, "saveBookInfo=" + json);
+    String json = ORZJson.toJson(bookBean);
+    ORZLog.i(TAG, "saveBookInfo=" + json);
     aCache.put(CacheConfigs.BOOK_INFO + "_" + urlName, json);
   }
 
   public BookBean getBookInfo(ACache aCache, String urlName) {
     String json = aCache.getAsString(CacheConfigs.BOOK_INFO + "_" + urlName);
 
-    if (SelfJson.isJson(json)) {
-      return SelfJson.fromJson(json, BookBean.class);
+    if (ORZJson.isJson(json)) {
+      return ORZJson.fromJson(json, BookBean.class);
     }
 
     return null;

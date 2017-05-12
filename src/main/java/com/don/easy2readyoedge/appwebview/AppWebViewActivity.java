@@ -1,10 +1,5 @@
 package com.don.easy2readyoedge.appwebview;
 
-import com.don.easy2readyoedge.R;
-import com.don.easy2readyoedge.configs.ExtraConfigs;
-import com.don.easy2readyoedge.core.self.SelfLog;
-import com.don.easy2readyoedge.utils.CommonUtils;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,6 +9,10 @@ import android.webkit.HttpAuthHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.don.easy2readyoedge.R;
+import com.don.easy2readyoedge.configs.ExtraConfigs;
+import com.don.easy2readyoedge.utils.CommonUtils;
+import com.orz.orzframework.logger.ORZLog;
 
 public class AppWebViewActivity extends AppCompatActivity implements AppWebContract.ViewModel {
 
@@ -64,7 +63,7 @@ public class AppWebViewActivity extends AppCompatActivity implements AppWebContr
       @Override
       public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        SelfLog.i(TAG, "onPageFinished # url=" + url);
+        ORZLog.i(TAG, "onPageFinished # url=" + url);
       }
     };
   }

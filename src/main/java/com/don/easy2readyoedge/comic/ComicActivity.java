@@ -26,9 +26,9 @@ import com.don.easy2readyoedge.beans.PageBean;
 import com.don.easy2readyoedge.configs.ExtraConfigs;
 import com.don.easy2readyoedge.core.self.IFAdapter;
 import com.don.easy2readyoedge.core.self.SelfBaseViewHolder;
-import com.don.easy2readyoedge.core.self.SelfLog;
 import com.google.gson.Gson;
 
+import com.orz.orzframework.logger.ORZLog;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -110,12 +110,12 @@ public class ComicActivity extends AppCompatActivity
         Pattern pTitle = Pattern.compile("http://smp.yoedge.com/smp-app/(.*?)/shinmangaplayer/res/pages/(.*?)/(.*)");
         Matcher matcherTitle = pTitle.matcher(url);
         while (matcherTitle.find()) {
-          SelfLog.i(TAG, "page image # url=" + view.getUrl());
+          ORZLog.i(TAG, "page image # url=" + view.getUrl());
 
-          SelfLog.i(TAG, "onLoadResource # " + matcherTitle.group());
-          SelfLog.i(TAG, "onLoadResource # " + matcherTitle.group(1));
-          SelfLog.i(TAG, "onLoadResource #" + matcherTitle.group(2));
-          SelfLog.i(TAG, "onLoadResource #" + matcherTitle.group(3));
+          ORZLog.i(TAG, "onLoadResource # " + matcherTitle.group());
+          ORZLog.i(TAG, "onLoadResource # " + matcherTitle.group(1));
+          ORZLog.i(TAG, "onLoadResource #" + matcherTitle.group(2));
+          ORZLog.i(TAG, "onLoadResource #" + matcherTitle.group(3));
 
           setFirstPage(view, url, matcherTitle.group(1), matcherTitle.group(2), matcherTitle.group(3));
           break;
@@ -131,12 +131,12 @@ public class ComicActivity extends AppCompatActivity
       @Override
       public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        SelfLog.i(TAG, "onPageFinished # url=" + url);
+        ORZLog.i(TAG, "onPageFinished # url=" + url);
       }
 
       @Override
       public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-        SelfLog.i(TAG, "shouldOverrideUrlLoading # url=" + view.getUrl());
+        ORZLog.i(TAG, "shouldOverrideUrlLoading # url=" + view.getUrl());
 //        if(view.getUrl().equals("http://rd.gdatacube.net/dc/html5/sync")){
 //          return true;
 //        }
@@ -179,7 +179,7 @@ public class ComicActivity extends AppCompatActivity
   }
 //int o=0;
   private synchronized void requestPage(final PageBean pageBean){
-    SelfLog.i(TAG, "next #" + pageBean.getPageUrl());
+    ORZLog.i(TAG, "next #" + pageBean.getPageUrl());
 //    Pattern pTitle = Pattern.compile("http://smp.yoedge.com/smp-app/(.*?)/shinmangaplayer/res/pages/(.*?)/(.*)");
 //          Matcher matcherTitle = pTitle.matcher(pageBean.getPageUrl());
 //          String pageUrl;
@@ -235,7 +235,7 @@ public class ComicActivity extends AppCompatActivity
 
         @Override
         public void fail() {
-          SelfLog.i(TAG, "fail to get = " + pageBean.getPageUrl());
+          ORZLog.i(TAG, "fail to get = " + pageBean.getPageUrl());
         }
       });
   }

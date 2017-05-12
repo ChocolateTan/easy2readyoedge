@@ -1,17 +1,13 @@
 package com.don.easy2readyoedge.data.source.remote;
 
-import android.text.TextUtils;
-import android.text.style.TextAppearanceSpan;
-import android.widget.TextView;
-
 import com.don.easy2readyoedge.apis.ApiService;
 import com.don.easy2readyoedge.beans.ArticleBean;
 import com.don.easy2readyoedge.beans.BookBean;
 import com.don.easy2readyoedge.configs.ApiConfigs;
-import com.don.easy2readyoedge.core.self.SelfLog;
 import com.don.easy2readyoedge.data.DataListener;
 import com.don.easy2readyoedge.utils.CommonUtils;
 
+import com.orz.orzframework.logger.ORZLog;
 import org.apache.commons.io.IOUtils;
 
 import java.io.BufferedInputStream;
@@ -62,7 +58,7 @@ public class BookInfoRemoteDataSource {
       .subscribe(new Subscriber<ResponseBody>() {
         @Override
         public void onCompleted() {
-          SelfLog.i(TAG, "Get Completed");
+          ORZLog.i(TAG, "Get Completed");
         }
 
         @Override
@@ -101,7 +97,7 @@ public class BookInfoRemoteDataSource {
 
             Matcher matcherTitle = pTitle.matcher(stringBuilder);
             while (matcherTitle.find()) {
-              SelfLog.i(TAG, "ss=" +CommonUtils.delHTMLTag(matcherTitle.group(1)));
+              ORZLog.i(TAG, "ss=" +CommonUtils.delHTMLTag(matcherTitle.group(1)));
               bookBean.setBookName(CommonUtils.delHTMLTag(matcherTitle.group(1)));
             }
 

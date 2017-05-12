@@ -3,13 +3,8 @@ package com.don.easy2readyoedge.yoedgecomicinfo;
 import com.don.easy2readyoedge.ApplicationModule;
 import com.don.easy2readyoedge.NetModule;
 import com.don.easy2readyoedge.StorageDataModule;
-import com.don.easy2readyoedge.core.self.SelfLog;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import com.don.easy2readyoedge.R;
-import com.don.easy2readyoedge.beans.BookBean;
-import com.don.easy2readyoedge.configs.CacheConfigs;
 import com.don.easy2readyoedge.configs.ExtraConfigs;
 import com.don.easy2readyoedge.utils.ACache;
 import com.don.easy2readyoedge.utils.CommonUtils;
@@ -22,21 +17,20 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+import com.don.easy2readyoedge.yoedgecomicinfo.YoedgeComicInfoContract.ViewModule;
+import com.orz.orzframework.logger.ORZLog;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 
-public class YoedgeComicInfoActivity extends AppCompatActivity implements YoedgeComicInfoContract.YoedgeComicInfoView {
+public class YoedgeComicInfoActivity extends AppCompatActivity implements ViewModule {
 
   private static final String TAG = YoedgeComicInfoActivity.class.getSimpleName();
   private WebView webView;
@@ -81,7 +75,7 @@ public class YoedgeComicInfoActivity extends AppCompatActivity implements Yoedge
       @Override
       public void onPageFinished(WebView view, final String url) {
         super.onPageFinished(view, url);
-        SelfLog.i(TAG, "url=" + url);
+        ORZLog.i(TAG, "url=" + url);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         //http://smp.yoedge.com/view/omnibus/1000491

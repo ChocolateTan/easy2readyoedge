@@ -1,5 +1,6 @@
 package com.don.easy2readyoedge.yoedgecomicinfo;
 
+import com.don.easy2readyoedge.yoedgecomicinfo.YoedgeComicInfoContract.ViewModule;
 import dagger.Module;
 import dagger.Provides;
 
@@ -8,10 +9,10 @@ import dagger.Provides;
  */
 @Module
 public class YoedgeComicInfoModule {
-  private YoedgeComicInfoContract.YoedgeComicInfoView view;
-  public YoedgeComicInfoModule(YoedgeComicInfoContract.YoedgeComicInfoView view){this.view = view;}
+  private ViewModule view;
+  public YoedgeComicInfoModule(ViewModule view){this.view = view;}
   @Provides
-  public YoedgeComicInfoContract.YoedgeComicInfoView providerView(){
+  public ViewModule providerView(){
     return view;
   }
 }

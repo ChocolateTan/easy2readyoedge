@@ -1,9 +1,7 @@
 package com.don.easy2readyoedge;
 
-import com.don.easy2readyoedge.core.self.SelfLog;
-import com.facebook.drawee.backends.pipeline.Fresco;
-
 import android.app.Application;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
  * Created by DON on 16/08/25.

@@ -1,6 +1,5 @@
 package com.don.easy2readyoedge.morecomic;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 
@@ -8,11 +7,11 @@ import com.don.easy2readyoedge.apis.ApiService;
 import com.don.easy2readyoedge.beans.BookBean;
 import com.don.easy2readyoedge.configs.ApiConfigs;
 import com.don.easy2readyoedge.configs.CacheConfigs;
-import com.don.easy2readyoedge.core.self.SelfLog;
 import com.don.easy2readyoedge.utils.ACache;
 
 import com.don.easy2readyoedge.utils.CommonUtils;
 
+import com.orz.orzframework.logger.ORZLog;
 import org.apache.commons.io.IOUtils;
 
 import java.io.BufferedInputStream;
@@ -76,12 +75,12 @@ public class MoreComicPresenter implements MoreComicContract.Presenter {
     if (null != allList && allList.size() > 0 && !TextUtils.isEmpty(search)) {
       List<BookBean> list = new ArrayList<>();
       for (int i = allList.size() - 1; i >= 0; i--) {
-        SelfLog.i(TAG, "textView=" + allList.get(i).getBookName());
+        ORZLog.i(TAG, "textView=" + allList.get(i).getBookName());
         if (allList.get(i).getBookName().contains(search)) {
           list.add(allList.get(i));
         }
       }
-      SelfLog.i(TAG, "search=" + list.size());
+      ORZLog.i(TAG, "search=" + list.size());
       if (null != list && list.size() > 0) {
         mView.addDataToList(list);
       }
@@ -104,7 +103,7 @@ public class MoreComicPresenter implements MoreComicContract.Presenter {
       .subscribe(new Subscriber<ResponseBody>() {
         @Override
         public void onCompleted() {
-          SelfLog.i(TAG, "Get Completed");
+          ORZLog.i(TAG, "Get Completed");
         }
 
         @Override
@@ -148,7 +147,7 @@ public class MoreComicPresenter implements MoreComicContract.Presenter {
       .subscribe(new Subscriber<ResponseBody>() {
         @Override
         public void onCompleted() {
-          SelfLog.i(TAG, "Get Completed");
+          ORZLog.i(TAG, "Get Completed");
         }
 
         @Override
@@ -192,7 +191,7 @@ public class MoreComicPresenter implements MoreComicContract.Presenter {
       .subscribe(new Subscriber<ResponseBody>() {
         @Override
         public void onCompleted() {
-          SelfLog.i(TAG, "Get Completed");
+          ORZLog.i(TAG, "Get Completed");
         }
 
         @Override
@@ -236,7 +235,7 @@ public class MoreComicPresenter implements MoreComicContract.Presenter {
       .subscribe(new Subscriber<ResponseBody>() {
         @Override
         public void onCompleted() {
-          SelfLog.i(TAG, "Get Completed");
+          ORZLog.i(TAG, "Get Completed");
         }
 
         @Override
@@ -334,7 +333,7 @@ public class MoreComicPresenter implements MoreComicContract.Presenter {
 
         BookBean bookBean = new BookBean();//.replace("<a" + matcherItemHrefRemove.group(1) + "</a>","")
         while (matcherItemHrefRemove.find()) {
-          SelfLog.v(TAG, TAG + " # " + matcherItem.group(2).replace(matcherItemHrefRemove.group(0), "") + " # " + matcherItemHref.group(1));
+          ORZLog.v(TAG, TAG + " # " + matcherItem.group(2).replace(matcherItemHrefRemove.group(0), "") + " # " + matcherItemHref.group(1));
 //          SelfLog.v(TAG, TAG + " remove # " + matcherItemHrefRemove.group(0) + " # ");
           String name = matcherItem.group(2).replace(matcherItemHrefRemove.group(0), "");
           name = CommonUtils.delHTMLTag(name);

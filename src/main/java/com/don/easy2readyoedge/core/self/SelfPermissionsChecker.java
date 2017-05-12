@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
+import com.orz.orzframework.logger.ORZLog;
 
 /**
  * Created by Administrator on 2016/9/1.
@@ -38,7 +39,7 @@ public class SelfPermissionsChecker {
             }
             return false;
         } else { //permission is automatically granted on sdk<23 upon installation
-            SelfLog.v(TAG, "Permission is granted");
+            ORZLog.v(TAG, "Permission is granted");
             return false;
         }
     }
@@ -47,7 +48,7 @@ public class SelfPermissionsChecker {
         if (Build.VERSION.SDK_INT >= 23) {
             return ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_DENIED;
         } else { //permission is automatically granted on sdk<23 upon installation
-            SelfLog.v(TAG, "Permission is granted");
+          ORZLog.v(TAG, "Permission is granted");
             return false;
         }
     }

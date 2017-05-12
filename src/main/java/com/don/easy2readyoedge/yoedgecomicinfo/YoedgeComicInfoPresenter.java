@@ -1,25 +1,19 @@
 package com.don.easy2readyoedge.yoedgecomicinfo;
 
-import android.graphics.Color;
-import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
 import android.view.View;
-
 import com.don.easy2readyoedge.beans.BookBean;
 import com.don.easy2readyoedge.configs.CacheConfigs;
-import com.don.easy2readyoedge.core.self.SelfLog;
 import com.don.easy2readyoedge.data.DataListener;
 import com.don.easy2readyoedge.data.source.local.BookInfoLocalDataSource;
 import com.don.easy2readyoedge.data.source.remote.BookInfoRemoteDataSource;
 import com.don.easy2readyoedge.utils.ACache;
+import com.don.easy2readyoedge.yoedgecomicinfo.YoedgeComicInfoContract.ViewModule;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-
 import javax.inject.Inject;
-
 import retrofit2.Retrofit;
 
 /**
@@ -27,11 +21,11 @@ import retrofit2.Retrofit;
  */
 
 public class YoedgeComicInfoPresenter implements YoedgeComicInfoContract.Presenter {
-  private final YoedgeComicInfoContract.YoedgeComicInfoView mView;
+  private final ViewModule mView;
 
   @Inject Retrofit.Builder mRetrofitBuilder;
   @Inject ACache mACache;
-  @Inject YoedgeComicInfoPresenter(YoedgeComicInfoContract.YoedgeComicInfoView view){
+  @Inject YoedgeComicInfoPresenter(ViewModule view){
     this.mView = view;
   }
   public void initControl() {

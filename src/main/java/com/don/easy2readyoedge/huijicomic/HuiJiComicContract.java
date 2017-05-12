@@ -1,10 +1,8 @@
 package com.don.easy2readyoedge.huijicomic;
 
 import com.don.easy2readyoedge.beans.BookBean;
-import com.don.easy2readyoedge.core.mvp.MvpView;
-
-import android.content.Context;
-
+import com.orz.orzframework.mvp.MvpPresenter;
+import com.orz.orzframework.mvp.MvpView;
 import java.util.List;
 
 /**
@@ -12,7 +10,8 @@ import java.util.List;
  */
 
 public interface HuiJiComicContract {
-  interface Presenter{
+
+  interface Presenter extends MvpPresenter {
 
     void initControl();
 
@@ -21,11 +20,16 @@ public interface HuiJiComicContract {
     void onClickComicItem(BookBean bookBean);
   }
 
-  interface ViewModel {
+  interface ViewModel extends MvpView {
+
     void initControl();
+
     void setListData(List<BookBean> bookBeen);
+
     void updateListStatus();
+
     void showWebViewToReadBookDetail(BookBean bookBean);
+
     void showBookDetail(BookBean bookBean);
   }
 }

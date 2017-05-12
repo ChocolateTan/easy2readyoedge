@@ -1,28 +1,25 @@
 package com.don.easy2readyoedge.bookmark;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
+import android.text.TextUtils;
 import com.don.easy2readyoedge.beans.BookBean;
 import com.don.easy2readyoedge.configs.CacheConfigs;
-import com.don.easy2readyoedge.core.self.SelfLog;
 import com.don.easy2readyoedge.data.DataListener;
 import com.don.easy2readyoedge.data.source.local.BookInfoLocalDataSource;
 import com.don.easy2readyoedge.data.source.remote.BookInfoRemoteDataSource;
 import com.don.easy2readyoedge.utils.ACache;
-
-import android.text.TextUtils;
-
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.orz.orzframework.logger.ORZLog;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-
-import static android.support.v7.widget.StaggeredGridLayoutManager.TAG;
 
 /**
  * Created by don on 10/23/16.
  */
 
 public class BookmarkFragmentPresenter implements BookmarkContract.Presenter {
+
+  private static final String TAG = "BookmarkFragmentPresenter";
   BookmarkContract.ViewModel mView;
   BookmarkFragmentPresenter(BookmarkContract.ViewModel view){
     this.mView = view;
@@ -44,7 +41,7 @@ public class BookmarkFragmentPresenter implements BookmarkContract.Presenter {
       Type type = new TypeToken<ArrayList<BookBean>>() {
       }.getType();
       ArrayList<BookBean> list = new Gson().fromJson(json, type);
-      SelfLog.i(TAG, "list=" + list.size());
+      ORZLog.i(TAG, "list=" + list.size());
       for (int i = 0, size = list.size(); i < size; i++) {
         if (i == size - 1) {
           request(aCache, list.get(i).getBookUrl(), true);
@@ -83,7 +80,7 @@ public class BookmarkFragmentPresenter implements BookmarkContract.Presenter {
             mView.updateData(data);
             if(isHide) {
               mView.hideLoading();
-              SelfLog.i(TAG, "hideLoading");
+              ORZLog.i(TAG, "hideLoading");
             }
           }
         }

@@ -5,7 +5,6 @@ import com.don.easy2readyoedge.NetModule;
 import com.don.easy2readyoedge.R;
 import com.don.easy2readyoedge.StorageDataModule;
 import com.don.easy2readyoedge.comicinfo.ComicInfoActivity;
-import com.don.easy2readyoedge.core.self.SelfLog;
 import com.don.easy2readyoedge.yoedgecomicinfo.YoedgeComicInfoActivity;
 import com.don.easy2readyoedge.adapters.BookAdapter;
 import com.don.easy2readyoedge.beans.BookBean;
@@ -28,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.orz.orzframework.logger.ORZLog;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -136,7 +136,7 @@ public class MoreComicFragment extends Fragment
 
   @Override
   public void addDataToList(List<BookBean> arrayList) {
-    SelfLog.i(TAG, "arrayList=" + arrayList.size());
+    ORZLog.i(TAG, "arrayList=" + arrayList.size());
     mAdapter.addData(arrayList);
   }
 

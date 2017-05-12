@@ -2,7 +2,6 @@ package com.don.easy2readyoedge.home;
 
 import com.don.easy2readyoedge.R;
 import com.don.easy2readyoedge.yoedgecomicinfo.YoedgeComicInfoActivity;
-import com.don.easy2readyoedge.core.self.SelfLog;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,6 +15,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.orz.orzframework.logger.ORZLog;
 
 public class HomeFragment extends Fragment implements HomeContract.ViewModel {
   private static final String TAG = HomeFragment.class.getSimpleName();
@@ -109,7 +109,7 @@ public class HomeFragment extends Fragment implements HomeContract.ViewModel {
       @Override
       public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        SelfLog.i(TAG, "url=" + url);
+        ORZLog.i(TAG, "url=" + url);
       }
 
       @Override
